@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Issa Doumbia · ISDOU Technologies</title>
+<meta name="description" content="Issa Doumbia, développeur à Bamako (Sabalibougou, Commune V). Fondateur d'ISDOU Technologies : School ID, logiciel de gestion scolaire, et African Market, logiciel de gestion de boutiques.">
+<meta property="og:title" content="Issa Doumbia · ISDOU Technologies">
+<meta property="og:description" content="Des logiciels pensés pour les écoles et les commerces du Mali : School ID, African Market.">
+<meta property="og:image" content="images/issa.webp">
+<meta name="theme-color" content="#0a1636">
+<link rel="icon" href="images/isdou.svg" type="image/svg+xml">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --nuit:#0a1636; --nuit2:#112a66; --bleu:#1e40af; --or:#f2a93b; --or2:#fcd34d;
+  --fond:#f6f4ee; --carte:#ffffff; --texte:#1b2237; --doux:#5b6478; --trait:#e4e1d8;
+  --vert:#0f8a4b; --rayon:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,system-ui,sans-serif;color:var(--texte);background:var(--fond);line-height:1.6;font-size:16px}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+.conteneur{width:min(1120px,100% - 32px);margin-inline:auto}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;margin:0;letter-spacing:-.01em}
+h2{font-size:clamp(28px,4vw,40px)}
+.surtitre{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--or)}
+.section{padding:88px 0}
+.section .intro{max-width:640px;margin:10px 0 40px;color:var(--doux)}
+
+/* --- navigation --- */
+.nav{position:sticky;top:0;z-index:20;background:rgba(10,22,54,.92);backdrop-filter:blur(10px);color:#fff}
+.nav .conteneur{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.marque{display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700}
+.marque img{width:36px;height:36px}
+.nav ul{display:flex;gap:26px;list-style:none;margin:0;padding:0;font-size:15px}
+.nav ul a{text-decoration:none;opacity:.85}
+.nav ul a:hover{opacity:1;color:var(--or2)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;font-size:15px;border:0;cursor:pointer}
+.btn-or{background:var(--or);color:var(--nuit)}
+.btn-or:hover{background:var(--or2)}
+.btn-ligne{border:1.5px solid rgba(255,255,255,.35);color:#fff}
+.btn-ligne:hover{border-color:var(--or)}
+.nav .btn{padding:9px 16px;font-size:14px}
+
+/* --- en-tête --- */
+.hero{background:radial-gradient(1200px 600px at 85% -10%,var(--bleu) 0%,transparent 60%),linear-gradient(160deg,var(--nuit),var(--nuit2));color:#fff;overflow:hidden}
+.hero .conteneur{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center;padding:72px 0 88px}
+.hero h1{font-size:clamp(40px,6vw,68px);margin:14px 0 18px}
+.hero h1{margin-bottom:6px}
+.surnom{font-family:Fraunces,Georgia,serif;font-size:clamp(24px,3.2vw,34px);color:var(--or);margin:0 0 20px;white-space:nowrap}
+.hero p.accroche{font-size:19px;color:#d6dcf0;max-width:560px;margin:0 0 26px}
+.lieu{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);padding:7px 14px;border-radius:999px;font-size:14px;color:#e6eaf7}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.portrait{position:relative}
+.portrait img{border-radius:28px;aspect-ratio:3/4;object-fit:cover;width:100%;height:auto;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.portrait::before{content:"";position:absolute;inset:-14px 14px 14px -14px;border:2px solid var(--or);border-radius:30px;z-index:-1;opacity:.7}
+.portrait .badge{position:absolute;left:-18px;bottom:28px;background:#fff;color:var(--nuit);border-radius:16px;padding:12px 16px;box-shadow:0 14px 30px rgba(0,0,0,.25);font-size:14px;line-height:1.35}
+.portrait .badge b{display:block;font-size:22px;font-family:Fraunces,serif}
+.chiffres{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12);border-radius:var(--rayon);overflow:hidden;margin-top:-44px;position:relative;z-index:2;box-shadow:0 20px 40px rgba(10,22,54,.18)}
+.chiffres div{background:var(--carte);padding:22px 20px}
+.chiffres b{display:block;font-family:Fraunces,serif;font-size:32px;color:var(--nuit)}
+.chiffres span{color:var(--doux);font-size:14px}
+
+/* --- projets --- */
+.projet{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:96px}
+.projet:last-child{margin-bottom:0}
+.projet.inverse .texte{order:2}
+.projet .logo{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.projet .logo img,.projet .logo .pastille{width:52px;height:52px;border-radius:14px}
+.projet .logo .pastille{display:grid;place-items:center;background:linear-gradient(135deg,#f59e0b,#c2410c);color:#fff;font-weight:800;font-size:20px}
+.projet h3{font-size:32px}
+.projet .type{color:var(--doux);font-size:15px}
+.projet p{color:#3a4258}
+.liste{list-style:none;padding:0;margin:18px 0 22px;display:grid;gap:9px}
+.liste li{display:flex;gap:10px;align-items:flex-start}
+.liste li::before{content:"";flex:none;width:20px;height:20px;margin-top:3px;border-radius:50%;background:var(--vert) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12l5 5 9-10'/%3E%3C/svg%3E") center/13px no-repeat}
+.etiquettes{display:flex;flex-wrap:wrap;gap:8px}
+.etiquettes span{font-size:13px;font-weight:600;background:#eceae2;color:#3a4258;padding:5px 11px;border-radius:999px}
+.ecrans{position:relative}
+.fenetre{border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 24px 50px rgba(10,22,54,.18);border:1px solid var(--trait)}
+.fenetre .barre{height:28px;background:#eef0f5;display:flex;align-items:center;gap:6px;padding:0 12px}
+.fenetre .barre i{width:10px;height:10px;border-radius:50%;background:#d3d7e2}
+.fenetre .barre i:first-child{background:#f87171}.fenetre .barre i:nth-child(2){background:#fbbf24}.fenetre .barre i:nth-child(3){background:#34d399}
+.ecrans .deuxieme{position:absolute;width:56%;right:-18px;bottom:-40px}
+.ecrans .tel{position:absolute;width:24%;left:-22px;bottom:-34px;border-radius:22px;border:6px solid #111827;box-shadow:0 20px 40px rgba(0,0,0,.3);overflow:hidden;background:#111827}
+.carte-simple{background:var(--carte);border:1px solid var(--trait);border-radius:var(--rayon);padding:26px}
+.autres{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.autres .icone{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--nuit);color:var(--or);margin-bottom:14px}
+.autres h3{font-size:22px;margin-bottom:6px}
+.autres p{color:var(--doux);margin:0}
+
+/* --- compétences --- */
+.fonce{background:var(--nuit);color:#fff}
+.fonce .intro{color:#c5cde4}
+.competences{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.competences .bloc{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--rayon);padding:24px}
+.competences h3{font-size:20px;color:var(--or2);margin-bottom:12px;font-family:Inter,sans-serif;font-weight:700}
+.competences ul{list-style:none;padding:0;margin:0;display:grid;gap:8px;color:#dfe4f3}
+.competences li span{color:#9aa6c6;font-size:14px}
+
+/* --- parcours --- */
+.parcours{position:relative;display:grid;gap:22px;max-width:760px}
+.parcours::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:2px;background:var(--trait)}
+.etape{display:grid;grid-template-columns:24px 1fr;gap:20px}
+.etape .point{width:24px;height:24px;border-radius:50%;background:var(--fond);border:3px solid var(--or);position:relative;z-index:1}
+.etape.futur .point{border-style:dashed;border-color:var(--doux)}
+.etape h3{font-size:20px;margin-bottom:4px}
+.etape .quand{font-size:13px;font-weight:700;color:var(--or);text-transform:uppercase;letter-spacing:.08em}
+.etape p{margin:4px 0 0;color:var(--doux)}
+
+/* --- contact --- */
+.contact{background:linear-gradient(160deg,var(--nuit),var(--nuit2));color:#fff;border-radius:28px;padding:56px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.contact p{color:#d6dcf0}
+.liens{display:grid;gap:12px}
+.lien{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:14px 18px;text-decoration:none;transition:.2s}
+.lien:hover{background:rgba(255,255,255,.13);border-color:var(--or)}
+.lien svg{flex:none;width:26px;height:26px}
+.lien b{display:block}
+.lien small{color:#b9c3df}
+footer{padding:40px 0 48px;color:var(--doux);font-size:14px;text-align:center}
+footer .signature{font-family:Fraunces,serif;font-size:18px;color:var(--nuit);margin-bottom:4px}
+
+/* --- téléphone --- */
+@media (max-width:900px){
+  .nav ul{display:none}
+  .hero .conteneur{grid-template-columns:1fr;padding:48px 0 80px;gap:40px}
+  .portrait{max-width:380px;margin-inline:auto}
+  .portrait .badge{left:8px}
+  .chiffres{grid-template-columns:repeat(2,1fr)}
+  .projet{grid-template-columns:1fr;gap:56px;margin-bottom:72px}
+  .projet.inverse .texte{order:0}
+  .ecrans .deuxieme{right:-6px;bottom:-30px}
+  .ecrans .tel{left:-6px}
+  .autres,.competences{grid-template-columns:1fr}
+  .contact{grid-template-columns:1fr;padding:32px 22px}
+  .section{padding:64px 0}
+}
+@media (prefers-reduced-motion:no-preference){
+  .js .apparait{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+  .js .apparait.vu{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="conteneur">
+    <a class="marque" href="#haut"><img src="images/isdou.svg" alt="">ISDOU Technologies</a>
+    <ul>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#parcours">Parcours</a></li>
+      <li><a href="schoolid/index.html">Site School ID</a></li>
+    </ul>
+    <a class="btn btn-or" href="#contact">Me contacter</a>
+  </div>
+</nav>
+
+<header class="hero" id="haut">
+  <div class="conteneur">
+    <div>
+      <span class="surtitre">Développeur · Fondateur d'ISDOU Technologies</span>
+      <h1>Issa Doumbia</h1>
+      <p class="surnom">« Son of Muhammad »</p>
+      <p class="accroche">Je crée des logiciels pensés pour les écoles et les commerces du Mali : simples à utiliser, en français et en arabe, et qui marchent même sans Internet.</p>
+      <span class="lieu">📍 Sabalibougou, Commune V — Bamako, Mali</span>
+      <div class="actions">
+        <a class="btn btn-or" href="#projets">Voir mes projets</a>
+        <a class="btn btn-ligne" href="https://wa.me/22391909928" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div class="portrait">
+      <img src="images/issa.webp" width="720" height="960" alt="Issa Doumbia au travail sur son ordinateur">
+      <div class="badge"><b>2 logiciels</b>prêts à vendre, faits à Bamako</div>
+    </div>
+  </div>
+</header>
+
+<div class="conteneur">
+  <div class="chiffres apparait">
+    <div><b>10</b><span>types d'écoles gérés par School ID</span></div>
+    <div><b>10</b><span>types de commerces dans African Market</span></div>
+    <div><b>3</b><span>langues : français, anglais, arabe</span></div>
+    <div><b>10</b><span>leçons de développement web écrites pour mes élèves</span></div>
+  </div>
+</div>
+
+<main>
+<section class="section" id="projets">
+  <div class="conteneur">
+    <span class="surtitre">Projets</span>
+    <h2>Ce que j'ai construit</h2>
+    <p class="intro">Deux logiciels complets, construits avec Python et Django, testés et prêts pour de vrais clients. Les captures montrent des données de démonstration.</p>
+
+    <article class="projet apparait">
+      <div class="texte">
+        <div class="logo"><img src="images/schoolid.svg" alt=""><div><h3>School ID</h3><div class="type">Logiciel de gestion scolaire</div></div></div>
+        <p>De la crèche à l'université, en passant par la médersa, le centre coranique et l'école de santé : un seul logiciel pour toute l'école, installé sur l'ordinateur du directeur et ouvert sur les téléphones par le Wi-Fi de l'école.</p>
+        <ul class="liste">
+          <li>Inscriptions, notes, bulletins, relevés LMD et diplômes</li>
+          <li>Paiements, reçus et rappels aux parents par WhatsApp</li>
+          <li>Cartes scolaires avec code QR et borne d'entrée</li>
+          <li>Messagerie interne avec messages vocaux, sans Internet</li>
+          <li>Sécurité testée avec OWASP ZAP : aucune alerte haute ni moyenne</li>
+          <li>Licences signées, protection du code, sauvegardes</li>
+        </ul>
+        <div class="etiquettes"><span>Python</span><span>Django</span><span>SQLite</span><span>JavaScript</span><span>FR · EN · AR</span></div>
+        <div class="actions" style="margin-top:22px"><a class="btn btn-or" href="schoolid/index.html">Voir le site de School ID →</a></div>
+      </div>
+      <div class="ecrans">
+        <div class="fenetre"><div class="barre"><i></i><i></i><i></i></div><img src="images/schoolid_tableau.webp" width="1200" height="675" loading="lazy" alt="Tableau de bord de School ID"></div>
+        <div class="fenetre deuxieme"><div class="barre"><i></i><i></i><i></i></div><img src="images/schoolid_cartes.webp" width="1200" height="675" loading="lazy" alt="Cartes scolaires dans School ID"></div>
+        <div class="tel"><img src="images/schoolid_mobile.webp" width="520" height="1125" loading="lazy" alt="School ID sur téléphone"></div>
+      </div>
+    </article>
+
+    <article class="projet inverse apparait">
+      <div class="texte">
+        <div class="logo"><span class="pastille">AM</span><div><h3>African Market</h3><div class="type">Logiciel de gestion de boutiques</div></div></div>
+        <p>Un seul logiciel pour tous les commerçants : chacun choisit son métier au premier lancement, et les bons outils s'activent tout seuls.</p>
+        <ul class="liste">
+          <li>Caisse rapide avec lecteur de code-barres et reçu WhatsApp</li>
+          <li>Téléphones : IMEI, garanties et vente à crédit en plusieurs mois</li>
+          <li>Pharmacie : lots, dates de péremption, périmés bloqués à la caisse</li>
+          <li>Vêtements et pièces : tailles, couleurs et qualités (Original, OLED…)</li>
+          <li>Quincaillerie et grossistes : vente au mètre, au kilo, au sac</li>
+          <li>Carnet de dettes, achats, dépenses et bénéfice du mois</li>
+        </ul>
+        <div class="etiquettes"><span>Python</span><span>Django</span><span>Tests automatiques</span><span>Mobile Money</span></div>
+      </div>
+      <div class="ecrans">
+        <div class="fenetre"><div class="barre"><i></i><i></i><i></i></div><img src="images/am_caisse.webp" width="1200" height="750" loading="lazy" alt="Caisse d'African Market"></div>
+        <div class="fenetre deuxieme"><div class="barre"><i></i><i></i><i></i></div><img src="images/am_tableau.webp" width="1200" height="828" loading="lazy" alt="Tableau de bord d'African Market"></div>
+      </div>
+    </article>
+
+    <div class="autres apparait" style="margin-top:120px">
+      <div class="carte-simple">
+        <div class="icone"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h7a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H2zM22 4h-7a3 3 0 0 0-3 3v13a2 2 0 0 1 2-2h8z"/></svg></div>
+        <h3>Leçons de développement web</h3>
+        <p>Dix leçons, du fonctionnement du Web jusqu'à la mise en ligne : HTML, CSS, JavaScript, Python, Django, SQL et sécurité. Je les ai écrites pour expliquer le métier à mes élèves, avec de vrais projets à faire.</p>
+      </div>
+      <div class="carte-simple">
+        <div class="icone"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
+        <h3>Site de présentation de School ID</h3>
+        <p>Un site en trois langues (français, anglais, arabe, de droite à gauche), avec les tarifs, des vidéos de démonstration et des guides, pour présenter le logiciel aux directeurs d'école.</p>
+        <p style="margin-top:14px"><a href="schoolid/index.html" style="color:var(--bleu);font-weight:600">Visiter le site →</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section fonce" id="competences">
+  <div class="conteneur">
+    <span class="surtitre">Compétences</span>
+    <h2>Ce que je sais faire</h2>
+    <p class="intro">J'apprends en construisant de vrais logiciels pour de vrais clients, et je continue d'apprendre chaque jour.</p>
+    <div class="competences">
+      <div class="bloc apparait">
+        <h3>Développement</h3>
+        <ul>
+          <li>Python et Django <span>— applications complètes</span></li>
+          <li>HTML, CSS, JavaScript <span>— pages et interfaces</span></li>
+          <li>Bases de données SQLite et SQL</li>
+          <li>Tests automatiques</li>
+          <li>Français, anglais et arabe dans une même application</li>
+        </ul>
+      </div>
+      <div class="bloc apparait">
+        <h3>Sécurité et installation</h3>
+        <ul>
+          <li>Tests de sécurité <span>— OWASP ZAP, Nmap</span></li>
+          <li>Pare-feu Windows et réseau local</li>
+          <li>Licences signées et protection du code</li>
+          <li>Installation, sauvegardes et mises à jour chez le client</li>
+        </ul>
+      </div>
+      <div class="bloc apparait">
+        <h3>Terrain</h3>
+        <ul>
+          <li>Réparation de téléphones portables</li>
+          <li>Formation des utilisateurs <span>— directeurs, secrétaires</span></li>
+          <li>Enseignement <span>— j'explique des leçons à mes élèves</span></li>
+          <li>Vente et accompagnement des clients</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="parcours">
+  <div class="conteneur">
+    <span class="surtitre">Parcours</span>
+    <h2>D'où je viens, où je vais</h2>
+    <p class="intro">Étudiant, enseignant et réparateur de téléphones : c'est en connaissant les écoles et les boutiques de près que j'ai su quels logiciels construire.</p>
+    <div class="parcours">
+      <div class="etape apparait"><span class="point"></span><div><span class="quand">Au départ</span><h3>Réparateur de téléphones</h3><p>Écrans, batteries, ports de charge… et la connaissance des boutiques de pièces et de leurs clients.</p></div></div>
+      <div class="etape apparait"><span class="point"></span><div><span class="quand">En parallèle</span><h3>Étudiant et enseignant</h3><p>J'explique des leçons à mes élèves. Aujourd'hui, j'enseigne aussi le développement web.</p></div></div>
+      <div class="etape apparait"><span class="point"></span><div><span class="quand">2026</span><h3>School ID</h3><p>Un logiciel de gestion scolaire complet, pour tous les types d'écoles, avec ses licences, son site et ses guides.</p></div></div>
+      <div class="etape apparait"><span class="point"></span><div><span class="quand">2026</span><h3>ISDOU Technologies</h3><p>Ma marque, pour vendre, installer et suivre mes logiciels au Mali et en Guinée.</p></div></div>
+      <div class="etape apparait"><span class="point"></span><div><span class="quand">2026</span><h3>African Market</h3><p>Le deuxième logiciel : un seul programme pour tous les commerçants.</p></div></div>
+      <div class="etape futur apparait"><span class="point"></span><div><span class="quand">Demain</span><h3>KalanSoft</h3><p>Des applications pour Android, iPhone et Windows.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact" style="padding-top:0">
+  <div class="conteneur">
+    <div class="contact apparait">
+      <div>
+        <span class="surtitre">Contact</span>
+        <h2 style="margin:10px 0 14px">Parlons de votre école ou de votre boutique</h2>
+        <p>Une démonstration, un devis, une question ? Écrivez-moi sur WhatsApp : je vous réponds et je viens vous montrer le logiciel.</p>
+        <p style="margin-top:18px"><span class="lieu">📍 Sabalibougou, Commune V — Bamako, Mali</span></p>
+      </div>
+      <div class="liens">
+        <a class="lien" href="https://wa.me/22391909928" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.1c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1a17 17 0 0 1-1.7-.6 13.4 13.4 0 0 1-5.2-4.6c-.4-.6-1.2-1.7-1.2-3.2s.8-2.3 1.1-2.6c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.3.5-.4.5c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.8-.1 1.5z"/></svg>
+          <div><b>WhatsApp Mali</b><small>+223 91 90 99 28</small></div>
+        </a>
+        <a class="lien" href="https://wa.me/224611520680" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="#25D366"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.8 14.1c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1a17 17 0 0 1-1.7-.6 13.4 13.4 0 0 1-5.2-4.6c-.4-.6-1.2-1.7-1.2-3.2s.8-2.3 1.1-2.6c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .6l-.3.5-.4.5c-.2.2-.3.4-.1.7.2.3.8 1.4 1.8 2.2 1.2 1.1 2.2 1.4 2.5 1.6.3.1.5.1.7-.1l.9-1.1c.2-.3.4-.2.7-.1l2 1c.3.1.5.2.6.3.1.2.1.8-.1 1.5z"/></svg>
+          <div><b>WhatsApp Guinée</b><small>+224 611 52 06 80</small></div>
+        </a>
+        <a class="lien" href="https://www.tiktok.com/@id_consulting_223" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="#fff"><path d="M16.6 2h-3.3v13.2a2.9 2.9 0 1 1-2-2.8V9a6.3 6.3 0 1 0 5.3 6.2V8.6a8 8 0 0 0 4.6 1.5V6.8a4.6 4.6 0 0 1-4.6-4.8z"/></svg>
+          <div><b>TikTok</b><small>@id_consulting_223</small></div>
+        </a>
+        <a class="lien" id="facebook" href="https://www.facebook.com/issa.doumbia.736202" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="#4f8cff"><path d="M24 12a12 12 0 1 0-13.9 11.9v-8.4H7.1V12h3V9.4c0-3 1.8-4.7 4.5-4.7 1.3 0 2.7.2 2.7.2v3h-1.5c-1.5 0-2 .9-2 1.9V12h3.4l-.5 3.5h-2.9v8.4A12 12 0 0 0 24 12z"/></svg>
+          <div><b>Facebook</b><small>Issa Doumbia</small></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="signature">Issa Doumbia (ID Dev) « SON OF MUHAMMAD »</div>
+  ISDOU Technologies · Bamako, Mali · <span id="annee">2026</span>
+</footer>
+
+<script>
+  document.getElementById("annee").textContent = new Date().getFullYear();
+  // Les blocs apparaissent doucement quand on descend dans la page.
+  const blocs = document.querySelectorAll(".apparait");
+  if ("IntersectionObserver" in window) {
+    const obs = new IntersectionObserver(entrees => entrees.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("vu"); obs.unobserve(e.target); }
+    }), {threshold: .05, rootMargin: "0px 0px -40px 0px"});
+    blocs.forEach(b => obs.observe(b));
+  } else {
+    blocs.forEach(b => b.classList.add("vu"));
+  }
+</script>
+</body>
+</html>
