@@ -1,0 +1,9 @@
+Vitrine de Mobile Center Bamako - African Market
+
+1. Ouvrez github.com, votre depot isdou-tech.github.io, puis « Add file » > « Upload files ».
+2. Glissez le dossier « b » (tout le dossier, pas seulement les fichiers).
+3. Cliquez « Commit changes ». Attendez 1 a 2 minutes.
+4. Le lien de la vitrine : https://isdou-tech.github.io/b/mobile-center-bamako/
+
+Mise a jour (nouveaux prix, nouveaux produits) : refaites « Telecharger pour GitHub »
+dans African Market, puis glissez a nouveau le dossier « b » : les anciens fichiers sont remplaces.

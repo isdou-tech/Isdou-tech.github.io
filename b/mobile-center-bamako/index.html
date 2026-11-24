@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mobile Center Bamako — Produits et prix</title>
+<meta name="description" content="12 produits. Commandez sur WhatsApp.">
+<meta property="og:title" content="Mobile Center Bamako">
+<meta property="og:description" content="Nos produits et nos prix. Commandez sur WhatsApp.">
+
+<meta name="theme-color" content="#0c2a6e">
+<meta name="robots" content="index,follow">
+<style>
+:root{
+  --fond:#f6f4ef; --carte:#ffffff; --texte:#14182b; --doux:#5d6478; --ligne:#e7e2d6;
+  --nuit:#0c2a6e; --nuit2:#071637; --or:#f59e0b; --or-clair:#fcd34d; --vert:#128c4a; --wa:#25d366;
+  --rouge:#c62828; --ombre:0 6px 22px rgba(20,24,43,.08);
+}
+@media (prefers-color-scheme: dark){
+  :root{ --fond:#0d1222; --carte:#161d33; --texte:#eef1fa; --doux:#a3abc4; --ligne:#26304d;
+         --ombre:0 6px 22px rgba(0,0,0,.35); }
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:Inter,"Segoe UI",Roboto,system-ui,sans-serif;background:var(--fond);color:var(--texte);
+     font-size:15px;line-height:1.45;padding-bottom:96px}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+.mur{max-width:1080px;margin:0 auto;padding:0 16px}
+
+/* En-tête */
+header.haut{background:linear-gradient(140deg,var(--nuit) 0%,var(--nuit2) 70%);color:#fff;position:relative;overflow:hidden}
+header.haut::after{content:"";position:absolute;inset:auto -60px -80px auto;width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle,rgba(252,211,77,.35),rgba(252,211,77,0) 70%);pointer-events:none}
+.identite{display:flex;gap:14px;align-items:center;padding:22px 0 14px}
+.logo{width:64px;height:64px;border-radius:16px;background:#fff;object-fit:contain;flex:none;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+.pastille{width:64px;height:64px;border-radius:16px;flex:none;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--or-clair),var(--or));color:var(--nuit2);font-weight:900;font-size:28px}
+.identite h1{margin:0;font-size:22px;line-height:1.15;letter-spacing:-.01em}
+.identite .slogan{margin:3px 0 0;color:#cdd7f6;font-size:14px}
+.infos{display:flex;flex-wrap:wrap;gap:6px 16px;color:#dbe4ff;font-size:13.5px;padding-bottom:12px}
+.message{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:9px 12px;
+  font-size:14px;margin:0 0 14px}
+.actions{display:flex;gap:8px;flex-wrap:wrap;padding-bottom:20px;position:relative;z-index:1}
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:10px 16px;font-weight:700;
+  text-decoration:none;font-size:14.5px}
+.btn.wa{background:var(--wa);color:#05361b}
+.btn.clair{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.btn svg{width:18px;height:18px;flex:none}
+.bandeau{background:var(--or-clair);color:#3b2600;text-align:center;font-size:13.5px;padding:8px 12px;font-weight:600}
+.bandeau a{font-weight:800}
+
+/* Recherche et catégories */
+.outils{position:sticky;top:0;z-index:5;background:var(--fond);padding:12px 0 8px;border-bottom:1px solid var(--ligne)}
+.recherche{position:relative}
+.recherche input{width:100%;padding:12px 14px 12px 42px;border-radius:14px;border:1.5px solid var(--ligne);
+  background:var(--carte);color:var(--texte);font-size:16px;outline:none}
+.recherche input:focus{border-color:var(--or)}
+.recherche svg{position:absolute;left:13px;top:50%;transform:translateY(-50%);width:19px;height:19px;color:var(--doux)}
+.puces{display:flex;gap:8px;overflow-x:auto;padding:10px 0 2px;scrollbar-width:none}
+.puces::-webkit-scrollbar{display:none}
+.puce{flex:none;border:1.5px solid var(--ligne);background:var(--carte);color:var(--texte);border-radius:999px;
+  padding:7px 13px;font-size:13.5px;font-weight:600;white-space:nowrap}
+.puce[aria-pressed="true"]{background:var(--nuit);border-color:var(--nuit);color:#fff}
+.compte{color:var(--doux);font-size:13px;margin:10px 0 0}
+
+/* Produits */
+.grille{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:14px 0 24px}
+@media (min-width:620px){.grille{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (min-width:900px){.grille{grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}}
+.produit{background:var(--carte);border:1px solid var(--ligne);border-radius:16px;overflow:hidden;display:flex;
+  flex-direction:column;box-shadow:var(--ombre)}
+.produit[hidden]{display:none}
+.image{aspect-ratio:1/1;background:#fff;position:relative;display:flex;align-items:center;justify-content:center}
+.image img{width:100%;height:100%;object-fit:contain}
+.sans-photo{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:34px;
+  font-weight:900;color:#fff;letter-spacing:.02em}
+.etiquette{position:absolute;top:8px;left:8px;background:var(--rouge);color:#fff;font-size:11.5px;font-weight:800;
+  padding:3px 8px;border-radius:999px;text-transform:uppercase;letter-spacing:.04em}
+.corps{padding:10px 11px 12px;display:flex;flex-direction:column;gap:3px;flex:1}
+.corps h2{font-size:14.5px;margin:0;line-height:1.25}
+.details{color:var(--doux);font-size:12.5px}
+.desc{color:var(--doux);font-size:12.5px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.prix{font-weight:900;font-size:16px;margin-top:auto;padding-top:6px;color:var(--vert)}
+.prix small{font-weight:600;color:var(--doux);font-size:12px}
+.prix.demande{color:var(--doux);font-size:13.5px;font-weight:700}
+.ajouter{margin-top:8px;width:100%;border:0;border-radius:12px;padding:9px 8px;background:var(--nuit);color:#fff;font-weight:700;font-size:14px}
+.produit.epuise .image img,.produit.epuise .sans-photo{opacity:.45;filter:grayscale(.6)}
+.produit.epuise .ajouter{background:var(--ligne);color:var(--doux);cursor:not-allowed}
+.qte{margin-top:8px;display:flex;align-items:center;justify-content:space-between;background:var(--fond);border-radius:12px;padding:3px}
+.qte button{width:38px;height:34px;border:0;border-radius:10px;background:var(--nuit);color:#fff;font-size:19px;font-weight:800}
+.qte b{font-size:16px}
+.vide{text-align:center;color:var(--doux);padding:40px 10px}
+
+/* Panier */
+.barre{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom));
+  background:linear-gradient(0deg,var(--fond) 70%,rgba(0,0,0,0))}
+.barre button{width:100%;max-width:560px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  border:0;border-radius:16px;padding:14px 18px;background:var(--wa);color:#05361b;font-weight:800;font-size:15.5px;
+  box-shadow:0 10px 26px rgba(18,140,74,.35)}
+.panneau{position:fixed;inset:0;z-index:30;background:rgba(7,22,55,.55);display:flex;align-items:flex-end;justify-content:center}
+.panneau[hidden]{display:none}
+.feuille{background:var(--carte);color:var(--texte);width:100%;max-width:560px;max-height:88vh;overflow:auto;
+  border-radius:20px 20px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom))}
+.feuille h3{margin:0 0 10px;font-size:18px;display:flex;justify-content:space-between;align-items:center}
+.fermer{border:0;background:var(--fond);color:var(--texte);border-radius:999px;width:36px;height:36px;font-size:20px}
+.ligne{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--ligne)}
+.ligne .nom{flex:1;min-width:0}
+.ligne .nom small{display:block;color:var(--doux)}
+.ligne .qte{margin:0;flex:none;gap:6px;padding:3px 4px}
+.qte b{min-width:22px;text-align:center}
+.total{display:flex;justify-content:space-between;font-weight:900;font-size:17px;padding:12px 0}
+.feuille label{display:block;font-weight:600;font-size:13.5px;margin:8px 0 4px}
+.feuille input,.feuille textarea{width:100%;padding:10px 12px;border-radius:12px;border:1.5px solid var(--ligne);
+  background:var(--fond);color:var(--texte);font-size:16px}
+.envoyer{margin-top:14px;width:100%;border:0;border-radius:14px;padding:14px;background:var(--wa);color:#05361b;
+  font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center;gap:8px}
+.note{color:var(--doux);font-size:12.5px;margin-top:8px;text-align:center}
+
+footer{color:var(--doux);font-size:12.5px;text-align:center;padding:10px 16px 24px}
+footer b{color:var(--texte)}
+</style>
+</head>
+<body>
+
+
+
+<header class="haut">
+  <div class="mur">
+    <div class="identite">
+      <div class="pastille">M</div>
+      <div>
+        <h1>Mobile Center Bamako</h1>
+        
+      </div>
+    </div>
+    <div class="infos">
+      <span>📍 Grand marché, Bamako</span>
+      <span>📞 +223 70 00 00 00</span>
+    </div>
+    
+    <div class="actions">
+      <a class="btn wa" href="https://wa.me/22370000000?text=Bonjour%20Mobile%20Center%20Bamako%2C%20je%20vous%20contacte%20depuis%20votre%20vitrine." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.6-4.6A8.5 8.5 0 1 1 8 19.6z"/><path d="M9 9.5c.3 2.3 2.2 4.4 5 5l1.2-1.3-2-1-1 .8a4 4 0 0 1-2-2l.8-1-1-2z"/></svg>WhatsApp</a>
+      <a class="btn clair" href="tel:+22370000000">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Appeler</a>
+    </div>
+  </div>
+</header>
+
+<div class="outils">
+  <div class="mur">
+    <div class="recherche">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg>
+      <input type="search" id="chercher" placeholder="Chercher un produit…" autocomplete="off" aria-label="Chercher un produit">
+    </div>
+    <div class="puces" role="group" aria-label="Catégories">
+      <button type="button" class="puce" data-cat="" aria-pressed="true">Tout</button>
+      <button type="button" class="puce" data-cat="Chargeurs et câbles" aria-pressed="false">Chargeurs et câbles</button><button type="button" class="puce" data-cat="Incassables et pochettes" aria-pressed="false">Incassables et pochettes</button><button type="button" class="puce" data-cat="Power banks et cartes mémoire" aria-pressed="false">Power banks et cartes mémoire</button><button type="button" class="puce" data-cat="Téléphones d&#x27;occasion" aria-pressed="false">Téléphones d&#x27;occasion</button><button type="button" class="puce" data-cat="Téléphones neufs" aria-pressed="false">Téléphones neufs</button><button type="button" class="puce" data-cat="Écouteurs et enceintes" aria-pressed="false">Écouteurs et enceintes</button>
+    </div>
+    <p class="compte" id="compte">12 produits</p>
+  </div>
+</div>
+
+<main class="mur">
+  
+  <div class="grille" id="grille">
+    
+    <article class="produit" data-id="7" data-nom="Chargeur rapide 25 W"
+             data-prix="5000" data-cat="Chargeurs et câbles" data-texte="Chargeur rapide 25 W ">
+      <div class="image">
+        <div class="sans-photo" data-couleur="Chargeur rapide 25 W">CH</div>
+        
+      </div>
+      <div class="corps">
+        <h2>Chargeur rapide 25 W</h2>
+        
+        
+        <div class="prix">5 000 FCFA</div>
+        
+        <div class="zone-achat"><button type="button" class="ajouter">+ Ajouter</button></div>
+      </div>
+    </article>
+    
+    <article class="produit epuise" data-id="8" data-nom="Câble Type-C 1 m"
+             data-prix="1500" data-cat="Chargeurs et câbles" data-texte="Câble Type-C 1 m ">
+      <div class="image">
+        <div class="sans-photo" data-couleur="Câble Type-C 1 m">CÂ</div>
+        <span class="etiquette">Épuisé</span>
+      </div>
+      <div class="corps">
+        <h2>Câble Type-C 1 m</h2>
+        
+        
+        <div class="prix">1 500 FCFA</div>
+        
+        <div class="zone-achat"><button type="button" class="ajouter" disabled>Épuisé</button></div>
+      </div>
+    </article>
+    
+    <article class="produit" data-id="6" data-nom="Coque silicone A15"
+             data-prix="1500" data-cat="Incassables et pochettes" data-texte="Coque silicone A15 ">
+      <div class="image">
+        <div class="sans-photo" data-couleur="Coque silicone A15">CO</div>
+        
+      </div>
+      <div class="corps">
+        <h2>Coque silicone A15</h2>
+        
+        
+        <div class="prix">1 500 FCFA</div>
+        
+        <div class="zone-achat"><button type="button" class="ajouter">+ Ajouter</button></div>
+      </div>
+    </article>
+    
+    <article class="produit" data-id="5" data-nom="Verre trempé universel"
+             data-prix="1000" data-cat="Incassables et pochettes" data-texte="Verre trempé universel ">
+      <div class="image">
+        <div class="sans-photo" data-couleur="Verre trempé universel">VE</div>
+        
+      </div>
+      <div class="corps">
+        <h2>Verre trempé universel</h2>
+        
+        
+        <div class="prix">1 000 FCFA</div>
+        
+        <div class="zone-achat"><button type="button" class="ajouter">+ Ajouter</button></div>
+      </div>
+    </article>
+    
+    <article class="produit" data-id="12" data-nom="Carte mémoire 32 Go"
+             data-prix="4500" data-cat="Power banks et cartes mémoire" data-texte="Carte mémoire 32 Go ">
+      <div class="image">
+        <div class="sans-photo" data-couleur="Carte mémoire 32 Go">CA</div>
+        
+      </div>
+      <div class="corps">
+        <h2>Carte mémoire 32 Go</h2>
+        
+        
+        <div class="prix">4 500 FCFA</div>
+        
+        <div class="zone-achat"><button type="button" class="ajouter">+ Ajouter</button></div>
+      </div>
+    </article>
+    
+    <article class="produit" data-id="11" data-nom="Power bank 10 000 mAh"
+             data-prix="10000" data-cat="Power banks et cartes mémoire" data-texte="Power bank 10 000 mAh ">
+      <div class="image">
+        <div class="sans-photo" data-couleur="Power bank 10 000 mAh">PO</div>
+        
+      </div>
+      <div class="corps">
+        <h2>Power bank 10 000 mAh</h2>
+        
+        
+        <div class="prix">10 000 FCFA</div>
+        
+        <div class="zone-achat"><button type="button" class="ajouter">+ Ajouter</button></div>
+      </div>
+    </article>
+    
+    <article class="produit" data-id="4" data-nom="iPhone 11 (64 Go) occasion"
+             data-prix="140000" data-cat="Téléphones d&#x27;occasion" data-texte="iPhone 11 (64 Go) occasion ">
+      <div class="image">
+        <div class="sans-photo" data-couleur="iPhone 11 (64 Go) occasion">IP</div>
+        
+      </div>
+      <div class="corps">
+        <h2>iPhone 11 (64 Go) occasion</h2>
+        
+        
+        <div class="prix">140 000 FCFA</div>
+        
+        <div class="zone-achat"><button type="button" class="ajouter">+ Ajouter</button></div>
+      </div>
+    </article>
+    
+    <article class="produit" data-id="3" data-nom="Infinix Hot 40i"
+             data-prix="70000" data-cat="Téléphones neufs" data-texte="Infinix Hot 40i ">
+      <div class="image">
+        <div class="sans-photo" data-couleur="Infinix Hot 40i">IN</div>
+        
+      </div>
+      <div class="corps">
+        <h2>Infinix Hot 40i</h2>
+        
+        
+        <div class="prix">70 000 FCFA</div>
+        
+        <div class="zone-achat"><button type="button" class="ajouter">+ Ajouter</button></div>
+      </div>
+    </article>
+    
+    <article class="produit" data-id="1" data-nom="Samsung Galaxy A15 (128 Go)"
+             data-prix="95000" data-cat="Téléphones neufs" data-texte="Samsung Galaxy A15 (128 Go) ">
+      <div class="image">
+        <div class="sans-photo" data-couleur="Samsung Galaxy A15 (128 Go)">SA</div>
+        
+      </div>
+      <div class="corps">
+        <h2>Samsung Galaxy A15 (128 Go)</h2>
+        
+        
+        <div class="prix">95 000 FCFA</div>
+        
+        <div class="zone-achat"><button type="button" class="ajouter">+ Ajouter</button></div>
+      </div>
+    </article>
+    
+    <article class="produit" data-id="2" data-nom="Tecno Spark 20"
+             data-prix="75000" data-cat="Téléphones neufs" data-texte="Tecno Spark 20 ">
+      <div class="image">
+        <div class="sans-photo" data-couleur="Tecno Spark 20">TE</div>
+        
+      </div>
+      <div class="corps">
+        <h2>Tecno Spark 20</h2>
+        
+        
+        <div class="prix">75 000 FCFA</div>
+        
+        <div class="zone-achat"><button type="button" class="ajouter">+ Ajouter</button></div>
+      </div>
+    </article>
+    
+    <article class="produit" data-id="10" data-nom="Écouteurs Bluetooth"
+             data-prix="7500" data-cat="Écouteurs et enceintes" data-texte="Écouteurs Bluetooth ">
+      <div class="image">
+        <div class="sans-photo" data-couleur="Écouteurs Bluetooth">ÉC</div>
+        
+      </div>
+      <div class="corps">
+        <h2>Écouteurs Bluetooth</h2>
+        
+        
+        <div class="prix">7 500 FCFA</div>
+        
+        <div class="zone-achat"><button type="button" class="ajouter">+ Ajouter</button></div>
+      </div>
+    </article>
+    
+    <article class="produit" data-id="9" data-nom="Écouteurs filaires"
+             data-prix="1500" data-cat="Écouteurs et enceintes" data-texte="Écouteurs filaires ">
+      <div class="image">
+        <div class="sans-photo" data-couleur="Écouteurs filaires">ÉC</div>
+        
+      </div>
+      <div class="corps">
+        <h2>Écouteurs filaires</h2>
+        
+        
+        <div class="prix">1 500 FCFA</div>
+        
+        <div class="zone-achat"><button type="button" class="ajouter">+ Ajouter</button></div>
+      </div>
+    </article>
+    
+  </div>
+  <p class="vide" id="aucun" hidden>Aucun produit ne commence par ces lettres.</p>
+  
+</main>
+
+<footer>
+  Prix et produits mis à jour le <b>24/11/2026</b> à 22:36.<br>
+  Les prix peuvent changer : la boutique confirme chaque commande sur WhatsApp.<br>
+  <span style="opacity:.8">Vitrine créée avec African Market · ISDOU Technologies</span>
+</footer>
+
+
+<div class="barre" id="barre" hidden>
+  <button type="button" id="ouvrir"><span>🛒 <span id="nb-articles">0</span></span><span id="total-barre"></span><span>Commander ›</span></button>
+</div>
+<div class="panneau" id="panneau" hidden>
+  <div class="feuille" role="dialog" aria-modal="true" aria-labelledby="titre-panier">
+    <h3 id="titre-panier">Ma commande <button type="button" class="fermer" id="fermer" aria-label="Fermer">×</button></h3>
+    <div id="lignes"></div>
+    <div class="total" id="ligne-total"><span>Total</span><span id="total"></span></div>
+    <label for="c-nom">Votre nom</label><input id="c-nom" autocomplete="name">
+    <label for="c-tel">Votre numéro WhatsApp (facultatif)</label><input id="c-tel" type="tel" autocomplete="tel" inputmode="tel">
+    <label for="c-quartier">Quartier / adresse de livraison (facultatif)</label><input id="c-quartier" autocomplete="street-address">
+    <button type="button" class="envoyer" id="envoyer">Envoyer la commande sur WhatsApp</button>
+    <p class="note">La commande part dans WhatsApp : vous la vérifiez avant d'appuyer sur « Envoyer ». La boutique vous répond pour le prix final et la livraison.</p>
+  </div>
+</div>
+
+
+<script nonce="">
+(function () {
+  var BOUTIQUE = "Mobile Center Bamako";
+  var DEVISE = "FCFA";
+  var WA = "22370000000";
+  var MODE = "export";
+  var CLE = "vitrine:https://isdou\u002Dtech.github.io/b/mobile\u002Dcenter\u002Dbamako/";
+
+  // Couleur des produits sans photo (toujours la même pour un même nom)
+  var teintes = [14, 28, 152, 199, 220, 262, 340, 175];
+  document.querySelectorAll(".sans-photo").forEach(function (el) {
+    var n = 0, t = el.getAttribute("data-couleur") || "";
+    for (var i = 0; i < t.length; i++) n = (n * 31 + t.charCodeAt(i)) >>> 0;
+    var h = teintes[n % teintes.length];
+    el.style.background = "linear-gradient(135deg,hsl(" + h + " 62% 46%),hsl(" + ((h + 30) % 360) + " 70% 32%))";
+  });
+
+  // --- Recherche par le DÉBUT des mots (« s » : Samsung, Sac… ; « cha sam » : Chargeur Samsung) ---
+  function sansAccent(t) { return (t || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
+  function mots(t) { return sansAccent(t).replace(/[^a-z0-9]+/g, " ").trim().split(" ").filter(Boolean); }
+  var produits = Array.prototype.slice.call(document.querySelectorAll(".produit"));
+  produits.forEach(function (p) { p._texte = " " + mots(p.getAttribute("data-texte")).join(" "); });
+  var champ = document.getElementById("chercher"), cat = "";
+  function filtrer() {
+    var q = mots(champ.value), n = 0;
+    produits.forEach(function (p) {
+      var ok = !cat || p.getAttribute("data-cat") === cat;
+      for (var i = 0; ok && i < q.length; i++) {
+        if (p._texte.indexOf(" " + q[i]) < 0 && !(/[0-9]/.test(q[i]) && p._texte.indexOf(q[i]) >= 0)) ok = false;
+      }
+      p.hidden = !ok; if (ok) n++;
+    });
+    document.getElementById("compte").textContent = n + " produit" + (n > 1 ? "s" : "");
+    var aucun = document.getElementById("aucun"); if (aucun) aucun.hidden = n > 0;
+  }
+  champ.addEventListener("input", filtrer);
+  document.querySelectorAll(".puce").forEach(function (b) {
+    b.addEventListener("click", function () {
+      cat = b.getAttribute("data-cat");
+      document.querySelectorAll(".puce").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+      filtrer();
+    });
+  });
+
+  if (!WA) return;
+
+  // --- Panier (gardé sur le téléphone du client) ---
+  var panier = {};
+  try { panier = JSON.parse(localStorage.getItem(CLE) || "{}") || {}; } catch (e) { panier = {}; }
+  var parId = {};
+  produits.forEach(function (p) { parId[p.getAttribute("data-id")] = p; });
+  Object.keys(panier).forEach(function (id) { if (!parId[id] || parId[id].classList.contains("epuise")) delete panier[id]; });
+
+  function argent(n) { return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " " + DEVISE; }
+  function garder() { try { localStorage.setItem(CLE, JSON.stringify(panier)); } catch (e) {} }
+  function info(id) { var p = parId[id]; return { nom: p.getAttribute("data-nom"), prix: +p.getAttribute("data-prix") || 0 }; }
+  function totaux() {
+    var nb = 0, total = 0, sansPrix = false;
+    Object.keys(panier).forEach(function (id) { var i = info(id); nb += panier[id]; total += i.prix * panier[id]; if (!i.prix) sansPrix = true; });
+    return { nb: nb, total: total, sansPrix: sansPrix };
+  }
+  function changer(id, delta) {
+    panier[id] = Math.max(0, Math.min(99, (panier[id] || 0) + delta));
+    if (!panier[id]) delete panier[id];
+    garder(); dessiner();
+  }
+  function zoneAchat(id) {
+    var q = panier[id] || 0;
+    if (!q) return '<button type="button" class="ajouter" data-plus="' + id + '">+ Ajouter</button>';
+    return '<div class="qte"><button type="button" data-moins="' + id + '" aria-label="Retirer un">−</button><b>' + q +
+      '</b><button type="button" data-plus="' + id + '" aria-label="Ajouter un">+</button></div>';
+  }
+  function echapper(t) { var d = document.createElement("div"); d.textContent = t; return d.innerHTML; }
+  function dessiner() {
+    produits.forEach(function (p) {
+      if (p.classList.contains("epuise")) return;
+      var z = p.querySelector(".zone-achat"); if (z) z.innerHTML = zoneAchat(p.getAttribute("data-id"));
+    });
+    var t = totaux();
+    document.getElementById("barre").hidden = !t.nb;
+    document.getElementById("nb-articles").textContent = t.nb + " article" + (t.nb > 1 ? "s" : "");
+    document.getElementById("total-barre").textContent = t.total && !t.sansPrix ? argent(t.total) : "";
+    var html = "";
+    Object.keys(panier).forEach(function (id) {
+      var i = info(id);
+      html += '<div class="ligne"><div class="nom">' + echapper(i.nom) + '<small>' +
+        (i.prix ? argent(i.prix) + " × " + panier[id] + " = " + argent(i.prix * panier[id]) : "Prix sur demande") +
+        '</small></div>' + zoneAchat(id).replace('class="ajouter"', 'class="ajouter" style="width:auto;margin:0"') + '</div>';
+    });
+    document.getElementById("lignes").innerHTML = html || '<p class="vide" style="padding:16px">Votre panier est vide.</p>';
+    document.getElementById("ligne-total").hidden = !t.total;
+    document.getElementById("total").textContent = argent(t.total) + (t.sansPrix ? " + prix sur demande" : "");
+    if (!t.nb) document.getElementById("panneau").hidden = true;
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest("[data-plus],[data-moins]");
+    if (!b) return;
+    if (b.hasAttribute("data-plus")) changer(b.getAttribute("data-plus"), 1);
+    else changer(b.getAttribute("data-moins"), -1);
+  });
+  var panneau = document.getElementById("panneau");
+  document.getElementById("ouvrir").addEventListener("click", function () { panneau.hidden = false; });
+  document.getElementById("fermer").addEventListener("click", function () { panneau.hidden = true; });
+  panneau.addEventListener("click", function (e) { if (e.target === panneau) panneau.hidden = true; });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") panneau.hidden = true; });
+  ["c-nom", "c-tel", "c-quartier"].forEach(function (id) {
+    var c = document.getElementById(id);
+    try { c.value = localStorage.getItem("vitrine-client:" + id) || ""; } catch (e) {}
+    c.addEventListener("change", function () { try { localStorage.setItem("vitrine-client:" + id, c.value); } catch (e) {} });
+  });
+  document.getElementById("envoyer").addEventListener("click", function () {
+    var t = totaux(), l = ["Bonjour " + BOUTIQUE + ", je voudrais commander :"];
+    Object.keys(panier).forEach(function (id) {
+      var i = info(id);
+      l.push("• " + panier[id] + " × " + i.nom + (i.prix ? " — " + argent(i.prix * panier[id]) : " (prix ?)"));
+    });
+    if (t.total) l.push("Total : " + argent(t.total) + (t.sansPrix ? " + prix à confirmer" : ""));
+    var nom = document.getElementById("c-nom").value.trim(), q = document.getElementById("c-quartier").value.trim();
+    var tel = document.getElementById("c-tel").value.trim();
+    if (nom) l.push("Nom : " + nom);
+    if (tel) l.push("Téléphone : " + tel);
+    if (q) l.push("Livraison : " + q);
+    // v1.4 : code de la commande (le logiciel de la boutique la reconnaît, sans rien retaper)
+    var lettres = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789", ref = "";
+    for (var k = 0; k < 5; k++) ref += lettres.charAt(Math.floor(Math.random() * lettres.length));
+    var ids = Object.keys(panier);
+    l.push("", "Code : AM-" + ref + ":" + ids.map(function (id) { return id + "x" + panier[id]; }).join(","));
+    l.push("(Commande depuis votre vitrine en ligne)");
+    if (MODE === "direct") {
+      try {
+        fetch("commande", {method: "POST", keepalive: true, headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({ref: ref, nom: nom, telephone: tel, adresse: q,
+                                lignes: ids.map(function (id) { return {id: +id, qte: panier[id]}; })})});
+      } catch (e) {}
+    }
+    window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(l.join("\n")), "_blank", "noopener");
+  });
+  dessiner();
+})();
+</script>
+</body>
+</html>
